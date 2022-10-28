@@ -1,19 +1,15 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
+import Header from './header'
 
 const Layout = ({ pageTitle, children }) => {
   return (
     <div>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/bio">Bio</Link></li>
-        </ul>
-      </nav>
+      <Header></Header>
       <main>
         <h1>{pageTitle}</h1>
         {children}
-      </main>
+      </main>  
     </div>
   )
 }
