@@ -23,9 +23,11 @@
   "homepage": "https://github.com/nodebotanist/gatsby-slices-i118n#readme",
   "dependencies": {
     "gatsby": "^5.0.0-next.9",
-    "gatsby-plugin-i18n": "^1.0.1",
+    "i18next": "^22.0.3",
+    "i18next-browser-languagedetector": "^7.0.0",
+    "i18next-xhr-backend": "^3.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-intl": "^6.2.1"
+    "react-i18next": "^12.0.0"
   }
 }
