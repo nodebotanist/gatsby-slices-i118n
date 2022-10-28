@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
-import Header from './header'
+import { Slice } from 'gatsby'
+
 
 const Layout = ({ pageTitle, children }) => {
   return (
     <div>
-      <Header></Header>
+      <Slice alias="header"></Slice>
       <main>
         <h1>{pageTitle}</h1>
         {children}
