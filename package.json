@@ -1,0 +1,29 @@
+{
+  "name": "gatsby-slices-i118n",
+  "version": "1.0.0",
+  "description": "Using Gatsby slices with i118n",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "npx gatsby develop",
+    "build": "npx gatsby build",
+    "serve": "npx gatsby serve",
+    "clean": "npx gatsby clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodebotanist/gatsby-slices-i118n.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nodebotanist/gatsby-slices-i118n/issues"
+  },
+  "homepage": "https://github.com/nodebotanist/gatsby-slices-i118n#readme",
+  "dependencies": {
+    "gatsby": "^5.0.0-next.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
