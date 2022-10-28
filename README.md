@@ -1,2 +1,2 @@
-# gatsby-slices-i118n
-Using Gatsby slices with i118n
+# gatsby-slices-i18n
+Using Gatsby slices with i18n
