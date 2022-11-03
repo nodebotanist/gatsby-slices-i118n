@@ -5,7 +5,7 @@ import { Slice } from 'gatsby'
 const Layout = ({ pageTitle, children, language }) => {
   return (
     <div>
-      <Slice alias={`header-${language}`}></Slice>
+      <Slice alias={`header`}></Slice>
       <main>
         <h1>{pageTitle}</h1>
         {children}
