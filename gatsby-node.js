@@ -5,16 +5,12 @@ const { languageDetector } = require('i18next-browser-languagedetector')
 
 exports.createPages = async ({ actions }) => {
 
+    actions.createSlice({
+        id: `header`,
+        component: require.resolve(`./src/components/header.js`),
+    })
 
     SUPPORTED_LANGUAGES.forEach((language) => {
-        actions.createSlice({
-            id: `header-${language}`,
-            component: require.resolve(`./src/components/header/header-${language}.js`),
-            context: {
-                language
-            }
-        })
-
         actions.createPage({
             path: `/${language}`,
             component: require.resolve(`./src/templates/home.js`),
@@ -24,7 +20,7 @@ exports.createPages = async ({ actions }) => {
             slices: {
                 // Any time `<Slice alias="header">` is seen on this page,
                 // use the `header-${language}` id
-                'header': `header-${language}`
+                'header': `header`
             }
         })
         actions.createPage({
@@ -36,7 +32,7 @@ exports.createPages = async ({ actions }) => {
             slices: {
                 // Any time `<Slice alias="header">` is seen on this page,
                 // use the `header-${language}` id
-                'header': `header-${language}`
+                'header': `header`
             }
         })
     })
