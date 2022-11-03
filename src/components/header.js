@@ -19,7 +19,6 @@ const Header = () => {
         }
     `)
 
-    console.log(data)
     return (
         <header>
             <h1>My Gatsby Site</h1>

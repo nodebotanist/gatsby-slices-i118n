@@ -45,35 +45,35 @@ exports.sourceNodes = async ({ actions, createNodeId }) => {
 
 exports.createPages = async ({ actions }) => {
     SUPPORTED_LANGUAGES.forEach((language) => {
+        actions.createSlice({
+            id: `header-${language.language}`, 
+            component: require.resolve('./src/components/header.js')
+        })
+
         actions.createPage({
             path: `/${language.language}`,
             component: require.resolve(`./src/templates/home.js`),
             context: {
-                language,
+                language: language.language
             },
             slices: {
                 // Any time `<Slice alias="header">` is seen on this page,
                 // use the `header-${language}` id
-                'header': `header`
+                'header': `header-${language}`
             }
         })
         actions.createPage({
             path: `${language.language}/bio`,
             component: require.resolve(`./src/templates/bio.js`),
             context: {
-                language,
+                language: language.language,
             },
             slices: {
                 // Any time `<Slice alias="header">` is seen on this page,
                 // use the `header-${language}` id
-                'header': `header`
+                'header': `header-${language}`
             }
         })
-    })
-
-    actions.createSlice({
-        id: 'header', 
-        component: require.resolve('./src/components/header.js')
     })
 
 }

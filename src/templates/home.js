@@ -1,9 +1,9 @@
 import * as React from 'react'
 import Layout from '../components/layout'
 
-const IndexPage = () => {
+const IndexPage = ({ pageContext }) => {
   return (
-    <Layout pageTitle="Home Page">
+    <Layout pageTitle="Home Page" language={pageContext.language}>
       <h1>Welcome to my Gatsby site!</h1>
     </Layout>
   )
