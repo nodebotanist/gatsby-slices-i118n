@@ -27,8 +27,8 @@ const Header = ({ sliceContext }) => {
             <h1>My Gatsby Site</h1>
             <nav>
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/bio">Bio</Link></li>
+                    <li><Link to={`/${sliceContext.language}`}>Home</Link></li>
+                    <li><Link to={`/${sliceContext.language}/bio`}>Bio</Link></li>
                 </ul>
             </nav>
         </header>

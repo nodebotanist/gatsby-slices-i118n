@@ -50,16 +50,13 @@ exports.createPages = async ({ actions }) => {
             alias: `header-${language.language}`, 
             component: require.resolve('./src/components/header.js'),
             context: {
-                lanugage: language.language
+                language: language.language
             }
         })
 
         actions.createPage({
             path: `/${language.language}`,
             component: require.resolve(`./src/templates/home.js`),
-            context: {
-                language: language.language
-            },
             slices: {
                 // Any time `<Slice alias="header">` is seen on this page,
                 // use the `header-${language}` id
@@ -69,9 +66,6 @@ exports.createPages = async ({ actions }) => {
         actions.createPage({
             path: `${language.language}/bio`,
             component: require.resolve(`./src/templates/bio.js`),
-            context: {
-                language: language.language,
-            },
             slices: {
                 // Any time `<Slice alias="header">` is seen on this page,
                 // use the `header-${language}` id
