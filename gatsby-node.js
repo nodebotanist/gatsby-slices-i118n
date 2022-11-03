@@ -1,14 +1,29 @@
+const crypto = require('crypto')
+
 const SUPPORTED_LANGUAGES = ['en', 'jp', 'de']
 
-const { graphql } = require('gatsby')
-const { languageDetector } = require('i18next-browser-languagedetector')
+exports.createPages = async ({ actions, createNodeId }) => {
 
-exports.createPages = async ({ actions }) => {
+    const { createNode, } = actions
 
-    actions.createSlice({
-        id: `header`,
-        component: require.resolve(`./src/components/header.js`),
+    SUPPORTED_LANGUAGES.forEach((node) => {
+        createNode({
+            // Data for the node.
+            language: node,
+            // Required fields.
+            id: createNodeId(node),
+            parent: null, // or null if it's a source node without a parent
+            children: [],
+            internal: {
+                type: `language`,
+                contentDigest: crypto
+                    .createHash(`md5`)
+                    .update(JSON.stringify(node))
+                    .digest(`hex`)
+            }
+        })
     })
+
 
     SUPPORTED_LANGUAGES.forEach((language) => {
         actions.createPage({
