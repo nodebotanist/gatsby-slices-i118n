@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { graphql, useStaticQuery } from 'gatsby'
 
-const Header = () => {
+const Header = ({ sliceContext }) => {
     const data = useStaticQuery(graphql`
         query{
             allLanguage {
@@ -18,6 +18,9 @@ const Header = () => {
             }
         }
     `)
+
+    
+    // const textFields = data.find(element => element.language === sliceContext.language);
 
     return (
         <header>

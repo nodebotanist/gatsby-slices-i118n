@@ -47,7 +47,10 @@ exports.createPages = async ({ actions }) => {
     SUPPORTED_LANGUAGES.forEach((language) => {
         actions.createSlice({
             id: `header-${language.language}`, 
-            component: require.resolve('./src/components/header.js')
+            component: require.resolve('./src/components/header.js'),
+            context: {
+                lanugage: language.language
+            }
         })
 
         actions.createPage({
