@@ -44,9 +44,11 @@ exports.sourceNodes = async ({ actions, createNodeId }) => {
 }
 
 exports.createPages = async ({ actions }) => {
+
     SUPPORTED_LANGUAGES.forEach((language) => {
         actions.createSlice({
-            id: `header-${language.language}`, 
+            id: `header-${language.language}`,
+            alias: `header-${language.language}`, 
             component: require.resolve('./src/components/header.js'),
             context: {
                 lanugage: language.language
