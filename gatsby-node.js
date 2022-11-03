@@ -1,17 +1,35 @@
 const crypto = require('crypto')
 
-const SUPPORTED_LANGUAGES = ['en', 'jp', 'de']
+const SUPPORTED_LANGUAGES = [
+    {
+        language: 'en',
+        title: 'My Gatsby Website',
+        home: 'Home',
+        bio: 'Bio'            
+    }, 
+    {
+        language: 'jp',
+        title: '私のギャツビーのウェブサイト',
+        home: 'ホームページ',
+        bio: '伝記'
+    }, 
+    {
+        language: 'de',
+        title: 'Meine Gatsby-Website',
+        home: 'Startseite',
+        bio: 'Biografie'
+    }
+]
 
-exports.createPages = async ({ actions, createNodeId }) => {
-
-    const { createNode, } = actions
+exports.sourceNodes = async ({ actions, createNodeId }) => {
+    const { createNode } = actions
 
     SUPPORTED_LANGUAGES.forEach((node) => {
         createNode({
             // Data for the node.
-            language: node,
+            ...node,
             // Required fields.
-            id: createNodeId(node),
+            id: createNodeId(node.language),
             parent: null, // or null if it's a source node without a parent
             children: [],
             internal: {
@@ -23,8 +41,9 @@ exports.createPages = async ({ actions, createNodeId }) => {
             }
         })
     })
+}
 
-
+exports.createPages = async ({ actions }) => {
     SUPPORTED_LANGUAGES.forEach((language) => {
         actions.createPage({
             path: `/${language}`,
