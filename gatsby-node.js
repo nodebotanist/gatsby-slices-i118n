@@ -36,7 +36,7 @@ exports.sourceNodes = async ({ actions, createNodeId }) => {
                 type: `language`,
                 contentDigest: crypto
                     .createHash(`md5`)
-                    .update(JSON.stringify(node))
+                    .update(JSON.stringify(node)) 
                     .digest(`hex`)
             }
         })
@@ -46,7 +46,7 @@ exports.sourceNodes = async ({ actions, createNodeId }) => {
 exports.createPages = async ({ actions }) => {
     SUPPORTED_LANGUAGES.forEach((language) => {
         actions.createPage({
-            path: `/${language}`,
+            path: `/${language.language}`,
             component: require.resolve(`./src/templates/home.js`),
             context: {
                 language,
@@ -58,7 +58,7 @@ exports.createPages = async ({ actions }) => {
             }
         })
         actions.createPage({
-            path: `${language}/bio`,
+            path: `${language.language}/bio`,
             component: require.resolve(`./src/templates/bio.js`),
             context: {
                 language,

@@ -1,7 +1,25 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const Header = () => {
+    const data = useStaticQuery(graphql`
+        query{
+            allLanguage {
+                edges {
+                    node {
+                        id
+                        language
+                        title
+                        home
+                        bio
+                    }
+                }
+            }
+        }
+    `)
+
+    console.log(data)
     return (
         <header>
             <h1>My Gatsby Site</h1>
