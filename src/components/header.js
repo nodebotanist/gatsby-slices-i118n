@@ -20,15 +20,16 @@ const Header = ({ sliceContext }) => {
     `)
 
     
-    // const textFields = data.find(element => element.language === sliceContext.language);
+    const textFields = data.allLanguage.edges.find(element => element.node.language === sliceContext.language);
 
+    console.log(textFields)
     return (
         <header>
             <h1>My Gatsby Site</h1>
             <nav>
                 <ul>
-                    <li><Link to={`/${sliceContext.language}`}>Home</Link></li>
-                    <li><Link to={`/${sliceContext.language}/bio`}>Bio</Link></li>
+                    <li><Link to={`/${sliceContext.language}`}>{textFields.node.home}</Link></li>
+                    <li><Link to={`/${sliceContext.language}/bio`}>{textFields.node.bio}</Link></li>
                 </ul>
             </nav>
         </header>
