@@ -1,5 +1,3 @@
-const crypto = require('crypto')
-
 const SUPPORTED_LANGUAGES = [
     {
         language: 'en',
@@ -21,7 +19,7 @@ const SUPPORTED_LANGUAGES = [
     }
 ]
 
-exports.sourceNodes = async ({ actions, createNodeId }) => {
+exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
     const { createNode } = actions
 
     SUPPORTED_LANGUAGES.forEach((node) => {
@@ -30,14 +28,9 @@ exports.sourceNodes = async ({ actions, createNodeId }) => {
             ...node,
             // Required fields.
             id: createNodeId(node.language),
-            parent: null, // or null if it's a source node without a parent
-            children: [],
             internal: {
                 type: `language`,
-                contentDigest: crypto
-                    .createHash(`md5`)
-                    .update(JSON.stringify(node)) 
-                    .digest(`hex`)
+                contentDigest: createContentDigest(node)
             }
         })
     })
