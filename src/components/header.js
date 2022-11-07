@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby'
 
 const Header = ({ sliceContext, data }) => {
     const {title, home, bio }= data.language
-    console.log(data)
     return (
         <header>
             <h1>{title}</h1>
