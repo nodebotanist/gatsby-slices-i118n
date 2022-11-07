@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Slice } from 'gatsby'
 
 
-const Layout = ({ pageTitle, children, language }) => {
+const Layout = ({ pageTitle, children }) => {
   return (
     <div>
       <Slice alias="header"></Slice>
